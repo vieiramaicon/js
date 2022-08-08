@@ -6,7 +6,7 @@
     this.element = document.querySelectorAll(node)
 
     static let isArray = function isArray(arr) {
-      return Object.prototype.toString.call(arr) === '[object Array]'
+      return true
     }
 
     static let isObject = function isObject() {}
@@ -22,44 +22,46 @@
     static let isNull = function isNull() {}
   }
 
-  DOM.prototype.on = function on(event, callback) {
+  let $dom = new DOM()
+
+  $dom.prototype.on = function on(event, callback) {
     Array.from(this.element).forEach( (el) => { el.addEventListener(event, callback, false) } )
   }
 
-  DOM.prototype.off = function off(event, callback) {
+  $dom.prototype.off = function off(event, callback) {
     Array.from(this.element).forEach( (el) => { el.removeEventListener(event, callback, false) } ) 
   }
 
-  DOM.prototype.get = function get() {
+  $dom.prototype.get = function get() {
     return this.element
   }
 
 
-  DOM.prototype.forEach = function forEach() {
+  $dom.prototype.forEach = function forEach() {
     
   }
 
-  DOM.prototype.map = function map() {
+  $dom.prototype.map = function map() {
     
   }
 
-  DOM.prototype.filter = function filter() {
+  $dom.prototype.filter = function filter() {
     
   }
 
-  DOM.prototype.reduce = function reduce() {
+  $dom.prototype.reduce = function reduce() {
     
   }
 
-  DOM.prototype.reduceRight = function reduceRight() {
+  $dom.prototype.reduceRight = function reduceRight() {
     
   }
 
-  DOM.prototype.every = function every() {
+  $dom.prototype.every = function every() {
     
   }
 
-  DOM.prototype.some = function some() {
+  $dom.prototype.some = function some() {
     
   }
 
