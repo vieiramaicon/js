@@ -24,7 +24,9 @@
   function DOM(node) {
     this.element = document.querySelectorAll(node)
 
-    static let isArray = function isArray() {}
+    static let isArray = function isArray(arr) {
+      return Object.prototype.toString.call(arr) === '[object Array]'
+    }
 
     static let isObject = function isObject() {}
 
@@ -39,57 +41,46 @@
     static let isNull = function isNull() {}
   }
 
-  Dom.prototype.on = function on(event, callback) {
+  DOM.prototype.on = function on(event, callback) {
     Array.from(this.element).forEach( (el) => { el.addEventListener(event, callback, false) } )
   }
 
-  Dom.prototype.off = function off(event, callback) {
+  DOM.prototype.off = function off(event, callback) {
     Array.from(this.element).forEach( (el) => { el.removeEventListener(event, callback, false) } ) 
   }
 
-  Dom.prototype.get = function get() {
+  DOM.prototype.get = function get() {
     return this.element
   }
 
-  //Daqui
 
-  Dom.prototype.forEach = function forEach() {
+  DOM.prototype.forEach = function forEach() {
     
   }
 
-  Dom.prototype.map = function map() {
+  DOM.prototype.map = function map() {
     
   }
 
-  Dom.prototype.filter = function filter() {
+  DOM.prototype.filter = function filter() {
     
   }
 
-  Dom.prototype.reduce = function reduce() {
+  DOM.prototype.reduce = function reduce() {
     
   }
 
-  Dom.prototype.reduceRight = function reduceRight() {
+  DOM.prototype.reduceRight = function reduceRight() {
     
   }
 
-  Dom.prototype.every = function every() {
+  DOM.prototype.every = function every() {
     
   }
 
-  Dom.prototype.some = function some() {
+  DOM.prototype.some = function some() {
     
   }
 
-  var $a = new DOM('[data-js="link"]');
-
-  function handleClick(e) {
-    e.preventDefault();
-    console.log('clicou')
-  }
-
-  $a.on('click', handleClick);
-
-  console.log('Elementos selecionados:', $a.get());
-  console.log('$a é filho de body?', $a.get()[0].parentNode === document.body);
+  console.log(DOM.isArray([1]))
 })()
